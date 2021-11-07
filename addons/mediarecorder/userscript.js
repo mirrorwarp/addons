@@ -30,7 +30,6 @@ export default async ({ addon, console, msg }) => {
         Object.assign(document.createElement("div"), {
           className: addon.tab.scratchClass("modal_header-item", "modal_header-item-title"),
           textContent: msg("option-title"),
-          title: msg("added-by"),
         })
       );
       recordOptionPopup.appendChild(recordOptionHeader);
@@ -334,7 +333,6 @@ export default async ({ addon, console, msg }) => {
       recordElem = Object.assign(document.createElement("div"), {
         className: "sa-record " + elem.className,
         textContent: msg("record"),
-        title: msg("added-by"),
       });
       recordElem.addEventListener("click", async () => {
         if (isRecording) {
