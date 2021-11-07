@@ -81,3 +81,13 @@
   fill: white;
   stroke: #ddd;
 }
+
+[theme="dark"] .sa-onion-image[data-image="settings"] {
+  filter: invert(1);
+}
+[theme="dark"] .sa-onion-image[data-image="increment"] {
+  filter: none;
+}
+[theme="dark"] .sa-onion-image[data-image="decrement"] {
+  filter: none;
+}

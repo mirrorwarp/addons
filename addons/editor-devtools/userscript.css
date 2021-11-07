@@ -63,6 +63,13 @@ input.s3devInp {
   font-size: 0.75rem;
   padding-left: 0.4em;
 }
+[theme="dark"] input.s3devInp {
+  color: #eee;
+  background: #3333;
+}
+[theme="dark"] input.s3devInp:hover {
+  background: #333;
+}
 
 input.s3devInp:focus {
   /* Change Scratch default styles */
@@ -105,6 +112,9 @@ div.s3devDDOut.vis {
   background-color: white;
   border: none;
   border-radius: 4px;
+}
+[theme="dark"] div.s3devDDOut.vis {
+  background-color: #111;
 }
 
 div.s3devDDOut.vis ul.s3devDD {
@@ -360,6 +370,14 @@ div.s3devDDOut.vis ul.s3devDD {
   border-top: 9px solid white;
   border-bottom: 10px solid white;
 }
+[theme="dark"] .s3devDD > li.boolean::before {
+  border-top-color: #111;
+  border-bottom-color: #111;
+}
+[theme="dark"] .s3devDD > li.boolean::after {
+  border-top-color: #111;
+  border-bottom-color: #111;
+}
 
 #s3devOverlay {
   position: fixed;
@@ -412,6 +430,9 @@ div.s3devDDOut.vis ul.s3devDD {
 .s3dev-mi:hover {
   background-color: #d6e9f8;
 }
+[theme="dark"] .s3dev-mi:hover {
+  background-color: var(--ui-tertiary);
+}
 
 #s3devHelpPop > div {
   box-sizing: border-box;
@@ -437,6 +458,9 @@ div.s3devDDOut.vis ul.s3devDD {
   background-color: white;
   user-select: text;
 }
+[theme="dark"] #s3devHelpPop > div {
+  background: #111;
+}
 
 #s3devFloatingBar {
   display: flex;
@@ -450,6 +474,9 @@ div.s3devDDOut.vis ul.s3devDD {
   box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px, rgba(0, 0, 0, 0.2) 0 3px 10px;
 
   z-index: 999;
+}
+[theme="dark"] #s3devFloatingBar {
+  background-color: #111;
 }
 
 #s3devInsertLabel {
