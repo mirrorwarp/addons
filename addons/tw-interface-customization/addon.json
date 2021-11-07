@@ -1,0 +1,37 @@
+{
+  "name": "Dangerous customizations",
+  "description": "Obscure customization options that few people will want to use. Not recommended.",
+  "userscripts": [
+    {
+      "url": "remove-backpack.js",
+      "matches": ["https://scratch.mit.edu/projects/*"],
+      "if": {
+        "settings": {
+          "removeBackpack": true
+        }
+      }
+    }
+  ],
+  "userstyles": [
+    {
+      "url": "remove-backpack.css",
+      "matches": ["https://scratch.mit.edu/projects/*"],
+      "if": {
+        "settings": {
+          "removeBackpack": true
+        }
+      }
+    }
+  ],
+  "onlyInEditor": true,
+  "settings": [
+    {
+      "name": "Remove backpack",
+      "id": "removeBackpack",
+      "type": "boolean",
+      "default": false
+    }
+  ],
+  "tags": ["theme"],
+  "enabledByDefault": false
+}
