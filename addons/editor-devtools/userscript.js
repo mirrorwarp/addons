@@ -1,13 +1,6 @@
 import DevTools from "./DevTools.js";
 
 export default async function ({ addon, global, console, msg, safeMsg: m }) {
-  // noinspection JSUnresolvedVariable
-  if (!addon.self._isDevtoolsExtension && window.initGUI) {
-    console.log("Extension running, stopping addon");
-    window._devtoolsAddonEnabled = true;
-    return;
-  }
-
   const guiDirection = addon.tab.direction;
   const helpHTML = `
 <div id="s3devHelpPop" class="${addon.tab.scratchClass("modal_modal-overlay")}" dir="${guiDirection}">
