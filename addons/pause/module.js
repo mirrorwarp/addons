@@ -1,4 +1,5 @@
-const vm = window.__scratchAddonsTraps._onceMap.vm;
+// TW: TODO: this is a hack
+const vm = window.vm;
 
 export let paused = false;
 let pausedThreadState = new WeakMap();
