@@ -83,16 +83,24 @@ function updateSettings(addon, newStyle) {
       tertiaryColor: "#0B8E69",
       alt: "pen",
     },
+    TurboWarp: {
+      color: "#ff4c4c",
+      tertiaryColor: "#e64444", // TODO fix
+      alt: "tw",
+      var: "tw",
+    },
     sa: {
       color: "#29beb8",
       tertiaryColor: "#3aa8a4",
+      alt: "a-b",
     },
   };
 
   for (var prop of Object.keys(categories)) {
     var settingName = categories[prop].var ? categories[prop].var : prop;
+    var propNameForSettings = prop === "TurboWarp" ? "tw" : prop;
     if (textMode === "white" || textMode === "black") {
-      let tertiary = multiply(addon.settings.get(prop + "-color"), { r: 0.8, g: 0.8, b: 0.8 });
+      let tertiary = multiply(addon.settings.get(propNameForSettings + "-color"), { r: 0.8, g: 0.8, b: 0.8 });
       stylesheet += `g[data-category="${prop}"] > path.blocklyBlockBackground {
         fill: var(--editorTheme3-${settingName}Color);
         ${textMode === "black" ? "--sa-block-text-color: #575e75;" : ""}
@@ -176,8 +184,8 @@ function updateSettings(addon, newStyle) {
     } else {
       let background = { colorOnWhite: "#fff", colorOnBlack: "#282828" }[textMode];
       let inputShadow = { colorOnWhite: "#00000026", colorOnBlack: "#fff3" }[textMode];
-      let secondary = multiply(addon.settings.get(prop + "-color"), { a: 0.15 });
-      let secondaryActive = multiply(addon.settings.get(prop + "-color"), { a: 0.25 });
+      let secondary = multiply(addon.settings.get(propNameForSettings + "-color"), { a: 0.15 });
+      let secondaryActive = multiply(addon.settings.get(propNameForSettings + "-color"), { a: 0.25 });
       let menuText = { colorOnWhite: "#575e75", colorOnBlack: "#fff" }[textMode];
       stylesheet += `g[data-category="${prop}"] > path.blocklyBlockBackground,
       g[data-category="${prop}"] > g[data-argument-type="dropdown"] > rect,
@@ -391,7 +399,7 @@ export default async function ({ addon, global, console }) {
   newStyle.setAttribute("data-addon-id", addon.self.id);
   newStyle.setAttribute("data-addon-index", otherStyle.getAttribute("data-addon-index"));
 
-  document.documentElement.insertBefore(newStyle, otherStyle.nextSibling);
+  otherStyle.parentElement.insertBefore(newStyle, otherStyle.nextSibling);
 
   // Look for reenable event to enable the style. cs.js cannot handle an appended style.
   addon.self.addEventListener("reenabled", () => (newStyle.disabled = false));

@@ -105,7 +105,15 @@
       "allowTransparency": true
     },
     {
-      "name": "Scratch Addons blocks",
+      "name": "TurboWarp",
+      "id": "tw-color",
+      "type": "color",
+      "default": "#ff4c4c",
+      "allowTransparency": true,
+      "reloadRequired": false
+    },
+    {
+      "name": "Addon blocks",
       "id": "sa-color",
       "type": "color",
       "default": "#29BEB8",
@@ -206,6 +214,7 @@
         "data-lists-color": "#993300",
         "custom-color": "#99004d",
         "Pen-color": "#064734",
+        "tw-color": "#660000",
         "sa-color": "#166966",
         "input-color": "#202020",
         "text": "white"
