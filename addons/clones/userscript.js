@@ -17,6 +17,7 @@ export default async function ({ addon, global, console, msg }) {
   );
 
   let countContainerContainer = document.createElement("div");
+  addon.tab.displayNoneWhileDisabled(countContainerContainer);
 
   let countContainer = document.createElement("div");
   let count = document.createElement("span");
@@ -41,11 +42,18 @@ export default async function ({ addon, global, console, msg }) {
     const v = vm.runtime._cloneCounter;
     // performance
     if (v === lastChecked) return;
-    countContainerContainer.dataset.count = lastChecked = v;
+    lastChecked = v;
+    if (v === 0) {
+      countContainerContainer.dataset.count = "none";
+    } else if (v >= vm.runtime.runtimeOptions.maxClones) {
+      countContainerContainer.dataset.count = "full";
+    } else {
+      countContainerContainer.dataset.count = "";
+    }
     count.dataset.str = cache[v] || msg("clones", { cloneCount: v });
 
     if (v === 0) countContainerContainer.style.display = "none";
-    else addon.tab.displayNoneWhileDisabled(countContainerContainer, { display: "flex" });
+    else countContainerContainer.style.display = "flex";
   }
 
   vm.runtime.on("targetWasRemoved", (t) => {
