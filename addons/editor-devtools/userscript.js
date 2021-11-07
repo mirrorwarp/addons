@@ -18,9 +18,7 @@ export default async function ({ addon, global, console, msg, safeMsg: m }) {
     <div class="${addon.tab.scratchClass("close-button_close-button", "close-button_large", {
       others: "close-button",
     })}">
-	  <img class="${addon.tab.scratchClass(
-      "close-button_close-icon"
-    )}" src="/static/assets/cb666b99d3528f91b52f985dfb102afa.svg">
+	  <img class="${addon.tab.scratchClass("close-button_close-icon")}" src="${addon.self.dir + "/icon--close.svg"}">
 	</div>
   </div>
 </div>
