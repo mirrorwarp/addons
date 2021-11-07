@@ -494,6 +494,8 @@ export default async function ({ addon, global, console, msg }) {
     const el = document.createElement("img");
     el.className = "sa-onion-image";
     el.draggable = false;
+    el.dataset.image = name;
+    el.loading = "lazy";
     el.src = addon.self.dir + "/" + name + ".svg";
     return el;
   };
