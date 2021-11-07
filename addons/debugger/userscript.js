@@ -34,11 +34,6 @@ export default async function ({ addon, global, console, msg }) {
     const pauseAddonButton = document.querySelector(".pause-btn");
     if (!pauseAddonButton || getComputedStyle(pauseAddonButton).display === "none") toggleConsole(true);
   };
-  addon.tab.addBlock("sa-pause", {
-    args: [],
-    callback: pause,
-    hidden: true,
-  });
   addon.tab.addBlock("\u200B\u200Bbreakpoint\u200B\u200B", {
     args: [],
     displayName: msg("block-breakpoint"),
