@@ -8,10 +8,10 @@
   position: relative;
 }
 .sa-onion-button:focus-within {
-  background-color: hsla(215, 100%, 65%, 0.2);
+  background-color: hsla(0, 100%, 65%, 0.2);
 }
 .sa-onion-button[data-enabled="true"] {
-  background-color: #4c97ff;
+  background-color: #ff4c4c;
 }
 
 .sa-onion-settings {
@@ -39,6 +39,9 @@
 [dir="rtl"] .sa-onion-settings {
   right: initial;
   left: 24px;
+}
+.sa-onion-settings .sa-onion-button {
+  border-color: #d9d9d9 !important; /* override dark mode */
 }
 
 .sa-onion-settings-line {
