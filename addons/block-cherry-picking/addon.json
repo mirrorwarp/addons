@@ -1,4 +1,6 @@
 {
+  "editorOnly": true,
+  "noTranslations": true,
   "name": "Grab single block with Ctrl key",
   "description": "Adds the ability to drag a single block out of the middle of a script (instead of the entire stack attached below it) while holding the Ctrl key.",
   "info": [
@@ -30,6 +32,7 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Flip controls",
       "id": "invertDrag",
       "type": "boolean",

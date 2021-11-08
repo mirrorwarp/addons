@@ -40,6 +40,7 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Image sizing",
       "id": "fitting",
       "type": "select",

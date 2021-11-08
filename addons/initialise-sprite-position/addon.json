@@ -1,4 +1,6 @@
 {
+  "editorOnly": true,
+  "noTranslations": true,
   "name": "Customizable new sprite position",
   "description": "Change the default x/y position of new sprites.",
   "credits": [
@@ -15,6 +17,7 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "id": "x",
       "name": "X position",
       "type": "integer",
@@ -23,6 +26,7 @@
       "max": 240
     },
     {
+      "dynamic": true,
       "id": "y",
       "name": "Y position",
       "type": "integer",
@@ -31,6 +35,7 @@
       "max": 180
     },
     {
+      "dynamic": true,
       "id": "library",
       "name": "Randomize the position of library sprites",
       "type": "boolean",
