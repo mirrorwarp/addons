@@ -1,4 +1,6 @@
 {
+  "editorOnly": true,
+  "noTranslations": true,
   "name": "Editor comment previews",
   "description": "Allows you to preview the contents of comments by hovering over collapsed comments and blocks. You can use this to view comments that are off-screen, identify a loop block from the bottom by its preview, fit many long comments in a small space, and more.",
   "tags": ["editor", "codeEditor"],
@@ -81,5 +83,5 @@
   "dynamicEnable": true,
   "dynamicDisable": true,
   "versionAdded": "1.22.0",
-  "enabledByDefault": false
+  "enabledByDefault": true
 }
