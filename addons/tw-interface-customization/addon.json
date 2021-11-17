@@ -33,6 +33,6 @@
       "default": false
     }
   ],
-  "tags": ["theme"],
+  "tags": ["theme", "danger"],
   "enabledByDefault": false
 }
