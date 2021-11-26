@@ -42,6 +42,7 @@ export default async function ({ addon, global, console }) {
     elementsWithFilter.clear();
     if (!addon.self.disabled) {
       vm.runtime.threads.forEach((thread) => {
+        if (thread.isCompiled) return;
         if (thread.target.blocks.forceNoGlow) return;
         thread.stack.forEach((blockId) => {
           const block = Blockly.getMainWorkspace().getBlockById(blockId);
