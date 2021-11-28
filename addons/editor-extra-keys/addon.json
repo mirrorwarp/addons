@@ -23,12 +23,14 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Enable experimental keys",
       "id": "experimentalKeys",
       "type": "boolean",
       "default": false
     },
     {
+      "dynamic": true,
       "name": "Enable Shift keys",
       "id": "shiftKeys",
       "type": "boolean",
