@@ -23,6 +23,15 @@
           "removeBackpack": true
         }
       }
+    },
+    {
+      "url": "remove-feedback.css",
+      "matches": ["https://scratch.mit.edu/projects/*"],
+      "if": {
+        "settings": {
+          "removeFeedback": true
+        }
+      }
     }
   ],
   "settings": [
@@ -31,8 +40,14 @@
       "id": "removeBackpack",
       "type": "boolean",
       "default": false
+    },
+    {
+      "name": "Remove feedback button",
+      "id": "removeFeedback",
+      "type": "boolean",
+      "default": false
     }
   ],
-  "tags": ["theme", "danger"],
+  "tags": ["danger"],
   "enabledByDefault": false
 }
