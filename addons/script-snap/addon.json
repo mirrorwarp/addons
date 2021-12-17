@@ -24,6 +24,7 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Grid size (px)",
       "id": "grid",
       "type": "integer",
