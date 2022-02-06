@@ -588,22 +588,6 @@ export default async function ({ addon, global, console, msg }) {
     return ogStartHats.call(this, hat, optMatchFields, ...args);
   };
 
-  const ogSetVariableTo = vm.runtime._primitives.data_setvariableto;
-  vm.runtime._primitives.data_setvariableto = function (args, util) {
-    if (addon.settings.get("log_invalid_cloud_data")) {
-      const variable = util.target.lookupOrCreateVariable(args.VARIABLE.id, args.VARIABLE.name);
-      if (variable.isCloud) {
-        const value = args.VALUE.toString();
-        if (isNaN(value)) {
-          logsTab.addLog(msg("log-cloud-data-nan", { var: variable.name }), util.thread, "internal-warn");
-        } else if (value.length > 256) {
-          logsTab.addLog(msg("log-cloud-data-too-long", { var: variable.name }), util.thread, "internal-warn");
-        }
-      }
-    }
-    ogSetVariableTo.call(this, args, util);
-  };
-
   while (true) {
     await addon.tab.waitForElement('[class*="stage-header_stage-size-row"]', {
       markAsSeen: true,
