@@ -34,30 +34,35 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Clear logs on green flag",
       "id": "log_clear_greenflag",
       "type": "boolean",
       "default": false
     },
     {
+      "dynamic": true,
       "name": "Log green flag clicks",
       "id": "log_greenflag",
       "type": "boolean",
       "default": false
     },
     {
+      "dynamic": true,
       "name": "Log clone creation",
       "id": "log_clone_create",
       "type": "boolean",
       "default": false
     },
     {
+      "dynamic": true,
       "name": "Log when max clones exceeded",
       "id": "log_failed_clone_creation",
       "type": "boolean",
       "default": true
     },
     {
+      "dynamic": true,
       "name": "Log broadcasts",
       "id": "log_broadcasts",
       "type": "boolean",
