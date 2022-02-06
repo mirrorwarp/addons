@@ -588,28 +588,6 @@ export default async function ({ addon, global, console, msg }) {
     return ogStartHats.call(this, hat, optMatchFields, ...args);
   };
 
-  const ogAddToList = vm.runtime._primitives.data_addtolist;
-  vm.runtime._primitives.data_addtolist = function (args, util) {
-    if (addon.settings.get("log_max_list_length")) {
-      const list = util.target.lookupOrCreateList(args.LIST.id, args.LIST.name);
-      if (list.value.length >= 200000) {
-        logsTab.addLog(msg("log-msg-list-append-too-long", { list: list.name }), util.thread, "internal-warn");
-      }
-    }
-    ogAddToList.call(this, args, util);
-  };
-
-  const ogInertAtList = vm.runtime._primitives.data_insertatlist;
-  vm.runtime._primitives.data_insertatlist = function (args, util) {
-    if (addon.settings.get("log_max_list_length")) {
-      const list = util.target.lookupOrCreateList(args.LIST.id, args.LIST.name);
-      if (list.value.length >= 200000) {
-        logsTab.addLog(msg("log-msg-list-insert-too-long", { list: list.name }), util.thread, "internal-warn");
-      }
-    }
-    ogInertAtList.call(this, args, util);
-  };
-
   const ogSetVariableTo = vm.runtime._primitives.data_setvariableto;
   vm.runtime._primitives.data_setvariableto = function (args, util) {
     if (addon.settings.get("log_invalid_cloud_data")) {

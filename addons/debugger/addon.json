@@ -64,12 +64,6 @@
       "default": false
     },
     {
-      "name": "Log when max list length exceeded",
-      "id": "log_max_list_length",
-      "type": "boolean",
-      "default": true
-    },
-    {
       "name": "Log invalid cloud variable values",
       "id": "log_invalid_cloud_data",
       "type": "boolean",
