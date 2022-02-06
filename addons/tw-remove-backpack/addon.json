@@ -1,6 +1,6 @@
 {
   "noTranslations": true,
-  "name": "Remove backpack",
+  "name": "Hide backpack",
   "description": "Removes the backpack feature from the editor.",
   "userscripts": [
     {
