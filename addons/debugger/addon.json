@@ -76,7 +76,7 @@
       "default": false
     }
   ],
-  "tags": ["editor", "featured"],
+  "tags": ["editor", "featured", "beta"],
   "enabledByDefault": false,
   "versionAdded": "1.16.0",
   "latestUpdate": {
