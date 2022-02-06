@@ -1,6 +1,7 @@
 import { textColor, multiply } from "../../libraries/common/cs/text-color.esm.js";
 
 function updateSettings(addon, newStyle) {
+  document.documentElement.style.setProperty('--editorTheme3-inputColor-text', textColor(addon.settings.get('input-color')));
   var stylesheet = "";
   const textMode = addon.settings.get("text");
   if (textMode === "black") {
