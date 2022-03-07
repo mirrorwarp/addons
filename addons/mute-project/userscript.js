@@ -6,7 +6,7 @@ export default async function ({ addon, global, console }) {
   icon.src = addon.self.dir + "/icon--mute.svg";
   icon.style.display = "none";
   const toggleMute = (e) => {
-    if (e.ctrlKey) {
+    if (e.ctrlKey || e.metaKey) {
       e.cancelBubble = true;
       e.preventDefault();
       muted = !muted;
