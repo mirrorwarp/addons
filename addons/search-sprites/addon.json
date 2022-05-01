@@ -1,4 +1,5 @@
 {
+  "editorOnly": true,
   "name": "Search sprites by name",
   "description": "Adds a search box to the sprite pane to search for sprites by name.",
   "credits": [
