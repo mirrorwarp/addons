@@ -226,7 +226,7 @@ let fuse;
         return chrome.runtime.getManifest().version_name;
       },
       addonAmt() {
-        return `${Math.floor(this.manifests.length / 5) * 5}+`;
+        return `${Math.floor(this.manifests.filter((addon) => !addon.tags.includes("easterEgg")).length / 5) * 5}+`;
       },
     },
 
@@ -297,6 +297,13 @@ let fuse;
         serializeSettings().then((serialized) => {
           const blob = new Blob([serialized], { type: "application/json" });
           downloadBlob("scratch-addons-settings.json", blob);
+        });
+      },
+      viewSettings() {
+        const openedWindow = window.open("about:blank");
+        serializeSettings().then((serialized) => {
+          const blob = new Blob([serialized], { type: "text/plain" });
+          openedWindow.location.replace(URL.createObjectURL(blob));
         });
       },
       importSettings() {
