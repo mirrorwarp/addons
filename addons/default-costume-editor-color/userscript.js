@@ -3,11 +3,6 @@ export default async function ({ addon, global, console, msg }) {
   // amount of CPU time so let's delay that for as long as possible.
   await addon.tab.traps.getPaper();
 
-  if (!("colorIndex" in addon.tab.redux.state.scratchPaint.fillMode)) {
-    console.error("Detected new paint editor; this will be supported in future versions.");
-    return;
-  }
-
   const hexComponent = (str) => (+str).toString(16).toUpperCase().padStart(2, "0");
 
   const parseColor = (color) => {
