@@ -12,6 +12,7 @@ The high/low distinction is necessary for axes. Buttons will only use high
 
 type: "mousedown" maps a button to control whether the mouse is down or not
 deadZone: 0.5 controls the minimum value to trigger a mousedown
+button: 0, 1, 2, etc. controls which button to press
 
 type: "virtual_cursor" maps a button to control the "virtual cursor"
 deadZone: 0.5 again controls the minimum value to trigger a movement
@@ -92,6 +93,9 @@ const transformAndCopyMapping = (mapping) => {
   } else if (copy.type === "mousedown") {
     if (typeof copy.deadZone === "undefined") {
       copy.deadZone = 0.5;
+    }
+    if (typeof copy.button === "undefined") {
+      copy.button = 0;
     }
   } else if (copy.type === "virtual_cursor") {
     if (typeof copy.high === "undefined") {
@@ -419,8 +423,8 @@ class GamepadLib extends EventTarget {
     this.keysPressedThisFrame = new Set();
     this.oldKeysPressed = new Set();
 
-    this.mouseDownThisFrame = false;
-    this.oldMouseDown = false;
+    this.mouseButtonsPressedThisFrame = new Set();
+    this.oldMouseDown = new Set();
 
     this.addEventHandlers();
   }
@@ -501,11 +505,11 @@ class GamepadLib extends EventTarget {
     }
   }
 
-  dispatchMouseDown(down) {
+  dispatchMouse(button, down) {
     if (down) {
-      this.dispatchEvent(new CustomEvent("mousedown"));
+      this.dispatchEvent(new CustomEvent("mousedown", { detail: button }));
     } else {
-      this.dispatchEvent(new CustomEvent("mouseup"));
+      this.dispatchEvent(new CustomEvent("mouseup", { detail: button }));
     }
   }
 
@@ -527,7 +531,7 @@ class GamepadLib extends EventTarget {
     } else if (mapping.type === "mousedown") {
       const isDown = Math.abs(value) >= mapping.deadZone;
       if (isDown) {
-        this.mouseDownThisFrame = true;
+        this.mouseButtonsPressedThisFrame.add(mapping.button);
       }
     } else if (mapping.type === "virtual_cursor") {
       const deadZone = mapping.deadZone;
@@ -554,9 +558,9 @@ class GamepadLib extends EventTarget {
 
   update(time) {
     this.oldKeysPressed = this.keysPressedThisFrame;
-    this.oldMouseDown = this.mouseDownThisFrame;
+    this.oldMouseButtonsPressed = this.mouseButtonsPressedThisFrame;
     this.keysPressedThisFrame = new Set();
-    this.mouseDownThisFrame = false;
+    this.mouseButtonsPressedThisFrame = new Set();
 
     if (this.currentTime === null) {
       this.deltaTime = 0; // doesn't matter what this is, it's just the first frame
@@ -605,11 +609,18 @@ class GamepadLib extends EventTarget {
         this.dispatchKey(key, false);
       }
     }
-    if (this.mouseDownThisFrame && !this.oldMouseDown) {
-      this.dispatchMouseDown(true);
-    } else if (!this.mouseDownThisFrame && this.oldMouseDown) {
-      this.dispatchMouseDown(false);
+
+    for (const button of this.mouseButtonsPressedThisFrame) {
+      if (!this.oldMouseButtonsPressed.has(button)) {
+        this.dispatchMouse(button, true);
+      }
     }
+    for (const button of this.oldMouseButtonsPressed) {
+      if (!this.mouseButtonsPressedThisFrame.has(button)) {
+        this.dispatchMouse(button, false);
+      }
+    }
+
     if (this.virtualCursor.modified) {
       this.virtualCursor.modified = false;
       if (this.virtualCursor.x > this.virtualCursor.maxX) {
