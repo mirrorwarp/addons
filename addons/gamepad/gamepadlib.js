@@ -773,7 +773,11 @@ class GamepadEditor extends EventTarget {
           input.value = this.keyToString(mapping[property]);
         }
       } else if (mapping.type === "mousedown") {
-        input.value = this.msg("key-click");
+        let value = this.msg("key-click");
+        if (mapping.button !== 0) {
+          value += ` (${mapping.button})`;
+        }
+        input.value = value;
       } else {
         // should never happen
         input.value = `??? ${mapping.type}`;
@@ -797,6 +801,7 @@ class GamepadEditor extends EventTarget {
         if (allowClick) {
           const mapping = mappingList[index];
           mapping.type = "mousedown";
+          mapping.button = e.button;
           changedMapping();
         } else {
           handleBlur();
@@ -838,7 +843,11 @@ class GamepadEditor extends EventTarget {
       }
     };
 
-    input.addEventListener("click", handleClick);
+    input.addEventListener("contextmenu", (e) => {
+      e.preventDefault();
+    });
+
+    input.addEventListener("mouseup", handleClick);
     input.addEventListener("keydown", handleKeyDown);
     input.addEventListener("blur", handleBlur);
     update();
