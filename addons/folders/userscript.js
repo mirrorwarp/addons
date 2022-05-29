@@ -1,5 +1,3 @@
-import { escapeHTML } from "../../libraries/common/cs/autoescaper.js";
-
 export default async function ({ addon, global, console, msg }) {
   // The basic premise of how this addon works is relative simple.
   // scratch-gui renders the sprite selectors and asset selectors in a hierarchy like this:
@@ -380,6 +378,7 @@ export default async function ({ addon, global, console, msg }) {
         const [x, y] = PREVIEW_POSITIONS[i];
         let src;
         if (item.asset) {
+          // TW: We can be 100% certain that escaping here is unnecessary
           src = item.asset.encodeDataURI();
         } else if (item.costume && item.costume.asset) {
           src = item.costume.asset.encodeDataURI();
