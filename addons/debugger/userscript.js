@@ -1,5 +1,6 @@
 import { isPaused, setPaused, onPauseChanged, setup } from "./module.js";
 import createLogsTab from "./logs.js";
+import createThreadsTab from "./threads.js";
 import DevtoolsUtils from "../editor-devtools/blockly/Utils.js";
 
 const removeAllChildren = (element) => {
@@ -490,7 +491,8 @@ export default async function ({ addon, global, console, msg }) {
     console,
   };
   logsTab = await createLogsTab(api);
-  const allTabs = [logsTab];
+  const threadsTab = await createThreadsTab(api);
+  const allTabs = [logsTab, threadsTab];
 
   for (const message of messagesLoggedBeforeLogsTabLoaded) {
     logsTab.addLog(...message);
