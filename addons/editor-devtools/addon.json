@@ -37,6 +37,7 @@
       "default": true
     }
   ],
+  "dynamicEnable": true,
   "userscripts": [
     {
       "url": "userscript.js",
