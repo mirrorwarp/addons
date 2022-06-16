@@ -107,6 +107,21 @@ export default async function ({ addon, global, console, msg }) {
     className: "sa-debugger-tab-content",
   });
 
+  const compilerWarning = document.createElement("a");
+  compilerWarning.addEventListener("click", () => {
+    addon.tab.redux.dispatch({
+      type: "scratch-gui/modals/OPEN_MODAL",
+      modal: "settingsModal"
+    });
+  });
+  compilerWarning.className = "sa-debugger-log sa-debugger-compiler-warning";
+  compilerWarning.textContent = "The debugger works best when the compiler is disabled.";
+  const updateCompilerWarningVisibility = () => {
+    compilerWarning.hidden = !vm.runtime.compilerOptions.enabled;
+  };
+  vm.on("COMPILER_OPTIONS_CHANGED", updateCompilerWarningVisibility);
+  updateCompilerWarningVisibility();
+
   let isInterfaceVisible = false;
   const setInterfaceVisible = (_isVisible) => {
     isInterfaceVisible = _isVisible;
@@ -155,7 +170,7 @@ export default async function ({ addon, global, console, msg }) {
   interfaceHeader.addEventListener("mousedown", handleStartDrag);
 
   interfaceHeader.append(tabListElement, buttonContainerElement);
-  interfaceContainer.append(interfaceHeader, tabContentContainer);
+  interfaceContainer.append(interfaceHeader, compilerWarning, tabContentContainer);
   document.body.append(interfaceContainer);
 
   const createHeaderButton = ({ text, icon, description }) => {

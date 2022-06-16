@@ -65,7 +65,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
     if (row.type === "compiled") {
       const el = document.createElement('div');
       el.className = "sa-debugger-thread-compiled";
-      el.textContent = "Stack information not available for compiled threads.";
+      el.textContent = "Compiled threads can't be stepped and have no stack information.";
       root.appendChild(el);
     }
 
@@ -122,7 +122,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
           },
           compiledItem: thread.isCompiled ? {
             type: "compiled",
-            depth: 2,
+            depth: 1,
           } : null,
           blockCache: new WeakMap(),
         });
