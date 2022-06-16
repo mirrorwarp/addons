@@ -150,9 +150,12 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
         }
 
         blockInfo.running =
-          thread === runningThread &&
-          blockId === runningThread.peekStack() &&
-          stackFrameIdx === runningThread.stackFrames.length - 1;
+          thread === runningThread && (
+            thread.isCompiled || (
+              blockId === runningThread.peekStack() &&
+              stackFrameIdx === runningThread.stackFrames.length - 1
+            )
+          );
 
         const result = [blockInfo];
         if (stackFrame && stackFrame.executionContext && stackFrame.executionContext.startedThreads) {
