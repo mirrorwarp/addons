@@ -1,5 +1,6 @@
-import { getRunningThread } from "./module.js";
+import { onPauseChanged, isPaused, singleStep, onSingleStep, getRunningThread } from "./module.js";
 import LogView from "./log-view.js";
+import Highlighter from "../editor-stepping/highlighter.js";
 
 const concatInPlace = (copyInto, copyFrom) => {
   for (const i of copyFrom) {
@@ -19,6 +20,8 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
   logView.canAutoScrollToEnd = false;
   logView.outerElement.classList.add("sa-debugger-threads");
   logView.placeholderElement.textContent = msg("no-threads-running");
+
+  const highlighter = new Highlighter(10, "#ff0000");
 
   logView.generateRow = (row) => {
     const root = document.createElement("div");
@@ -203,7 +206,32 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
 
   debug.addAfterStepCallback(() => {
     updateContent();
+
+    const runningThread = getRunningThread();
+    if (runningThread) {
+      highlighter.setGlowingThreads([runningThread]);
+    } else {
+      highlighter.setGlowingThreads([]);
+    }
   });
+
+  const stepButton = debug.createHeaderButton({
+    text: msg("step"),
+    icon: addon.self.dir + "/icons/step.svg",
+    description: msg("step-desc"),
+  });
+  stepButton.element.addEventListener("click", () => {
+    singleStep();
+  });
+
+  const handlePauseChanged = (paused) => {
+    stepButton.element.style.display = paused ? "" : "none";
+    updateContent();
+  };
+  handlePauseChanged(isPaused());
+  onPauseChanged(handlePauseChanged);
+
+  onSingleStep(updateContent);
 
   const show = () => {
     logView.show();
@@ -216,7 +244,7 @@ export default async function createThreadsTab({ debug, addon, console, msg }) {
   return {
     tab,
     content: logView.outerElement,
-    buttons: [],
+    buttons: [stepButton],
     show,
     hide,
   };
