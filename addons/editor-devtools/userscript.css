@@ -20,6 +20,7 @@
   cursor: default;
   white-space: nowrap;
   padding-top: 2px;
+  line-height: 2;
 }
 
 [dir="rtl"] .s3devLabel > label {
