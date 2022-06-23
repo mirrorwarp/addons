@@ -141,6 +141,10 @@ const singleStepThread = (thread) => {
   if (thread.status === STATUS_DONE) {
     return false;
   }
+  // TW: Can't single-step compiled threads
+  if (thread.isCompiled) {
+    return false;
+  }
 
   const currentBlockId = thread.peekStack();
   if (!currentBlockId) {
@@ -264,6 +268,10 @@ const findNewSteppingThread = (startingIndex) => {
     const possibleNewThread = threads[i];
     if (possibleNewThread.updateMonitor) {
       // Never single-step monitor update threads.
+      continue;
+    }
+    // TW: Can't single-step compiled threads
+    if (thread.isCompiled) {
       continue;
     }
     const status = getRealStatus(possibleNewThread);
