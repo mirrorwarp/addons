@@ -180,7 +180,7 @@ export default async function ({ addon, global, console, msg }) {
     };
 
     const oldStepScrollAnimation = Blockly.Flyout.prototype.stepScrollAnimation;
-    Blockly.Flyout.prototype.stepScrollAnimation = function () {
+    Blockly.Flyout.prototype.stepScrollAnimation = function (...args) {
       // scrolling should not be animated when opening the flyout in category click mode
       if (!scrollAnimation) {
         this.scrollbar_.set(this.scrollTarget);
@@ -188,7 +188,7 @@ export default async function ({ addon, global, console, msg }) {
         scrollAnimation = true;
         return;
       }
-      oldStepScrollAnimation.call(this);
+      return oldStepScrollAnimation.apply(this, args);
     };
 
     // add flyout size to the workspace dimensions
