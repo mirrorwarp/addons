@@ -36,6 +36,7 @@
   "versionAdded": "1.8.0",
   "settings": [
     {
+      "dynamic": true,
       "name": "Toggle on...",
       "id": "toggle",
       "type": "select",
