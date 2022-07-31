@@ -93,7 +93,7 @@
   width: 20px;
 }
 
-.sa-lock-object.locked img {
+[theme="dark"] .sa-lock-button img {
   filter: brightness(200%);
 }
 
@@ -102,6 +102,7 @@
 [class*="gui_target-wrapper_"] {
   position: relative;
   padding-inline: 0.5rem;
+  background-color: var(--ui-primary, hsl(215, 100%, 95%));
 }
 /* Both must be above hidden flyout when dragging block with editor-stage-left enabled */
 /* Both must be above category list when columns is enabled so dragged sprites appear aren't obscured */
