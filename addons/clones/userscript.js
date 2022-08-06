@@ -44,6 +44,7 @@ export default async function ({ addon, global, console, msg }) {
     const v = vm.runtime._cloneCounter;
     // performance
     if (v === lastChecked && !force) return;
+    lastChecked = v;
     if (v === 0) {
       countContainerContainer.dataset.count = "none";
     } else if (v >= vm.runtime.runtimeOptions.maxClones) {
@@ -58,13 +59,14 @@ export default async function ({ addon, global, console, msg }) {
     }
 
     if (v === 0) countContainerContainer.style.display = "none";
-    else addon.tab.displayNoneWhileDisabled(countContainerContainer, { display: "flex" });
+    else countContainerContainer.style.display = "flex";
   }
 
-  vm.runtime.on("targetWasRemoved", (t) => {
-    // Fix bug with inaccurate clone counter
-    if (t.isOriginal) vm.runtime.changeCloneCounter(1);
+  addon.settings.addEventListener("change", () => {
+    showIconOnly = addon.settings.get("showicononly");
+    doCloneChecks(true);
   });
+
   const oldStep = vm.runtime._step;
   vm.runtime._step = function (...args) {
     const ret = oldStep.call(this, ...args);
