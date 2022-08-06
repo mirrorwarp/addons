@@ -28,6 +28,7 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "id": "showicononly",
       "name": "Show icon only",
       "default": false,
