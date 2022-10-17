@@ -110,7 +110,7 @@ export default async function ({ addon, global, console, msg }) {
     addon.tab.redux.addEventListener("statechanged", (e) => {
       switch (e.detail.action.type) {
         // Event casted when you switch between tabs
-        case "scratch-gui/navigation/ACTIVATE_TAB":
+        case "scratch-gui/navigation/ACTIVATE_TAB": {
           // always 0, 1, 2
           const toggleSetting = getToggleSetting();
           if (
@@ -122,6 +122,7 @@ export default async function ({ addon, global, console, msg }) {
             toggle = false;
           }
           break;
+        }
       }
     });
 
