@@ -1,4 +1,5 @@
 {
+  "noTranslations": true,
   "name": "Project volume slider",
   "description": "Adds a volume slider next to the green flag controls.",
   "credits": [
