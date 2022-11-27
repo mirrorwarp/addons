@@ -307,6 +307,7 @@
       "allowTransparency": true
     },
     {
+      "dynamic": true,
       "name": "Comments",
       "id": "comment-color",
       "type": "color",
