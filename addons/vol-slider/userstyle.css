@@ -37,3 +37,8 @@
   border-radius: 50%;
   background-color: #cf63cf;
 }
+
+/* TW: Hide mute-project icon. Upstream this is a conditional stylesheet in mute-project but we don't support those yet. */
+.sa-mute-icon {
+  display: none !important;
+}
