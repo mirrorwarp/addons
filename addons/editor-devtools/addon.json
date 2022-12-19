@@ -1,7 +1,7 @@
 {
   "editorOnly": true,
   "name": "Developer tools",
-  "description": "Adds new menu options to the editor: copy/paste blocks, better clean up, and more! Use Ctrl+Space (Shift+Space on macOS) to bring up the \"add block by name\" popup.",
+  "description": "Adds new menu options to the editor: copy/paste blocks, better clean up, and more!",
   "credits": [
     {
       "name": "griffpatch"
@@ -27,12 +27,6 @@
   "userscripts": [
     {
       "url": "userscript.js",
-      "matches": ["projects"]
-    }
-  ],
-  "userstyles": [
-    {
-      "url": "userscript.css",
       "matches": ["projects"]
     }
   ],
