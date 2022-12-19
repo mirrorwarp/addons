@@ -34,8 +34,8 @@
   padding: 4px;
   position: absolute;
   width: 16em;
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.3);
-  background-color: white;
+  box-shadow: 0px 0px 8px 1px var(--ui-black-transparent, rgba(0, 0, 0, 0.3));
+  background-color: var(--ui-primary, white);
   border: none;
   border-radius: 4px;
 }
@@ -117,8 +117,8 @@
   width: 0;
   height: 0;
   border-right: 9px solid transparent;
-  border-top: 9px solid white;
-  border-bottom: 10px solid white;
+  border-top: 9px solid var(--ui-primary, white);
+  border-bottom: 10px solid var(--ui-primary, white);
 }
 .sa-float-bar-dropdown > li.sa-boolean::after {
   content: "";
@@ -128,8 +128,8 @@
   width: 0;
   height: 0;
   border-left: 9px solid transparent;
-  border-top: 9px solid white;
-  border-bottom: 10px solid white;
+  border-top: 9px solid var(--ui-primary, white);
+  border-bottom: 10px solid var(--ui-primary, white);
 }
 [theme="dark"] .s3devDD > li.boolean::before {
   border-top-color: #111;
