@@ -60,7 +60,7 @@ export default async function ({ addon, console }) {
       if (renderer) renderer.resize(stageSize.width, stageSize.height);
       // Scratch uses the `transform` CSS property on a stage overlay element
       // to control the scaling of variable monitors.
-      const scale = stageSize.width / 480;
+      const scale = stageSize.width / vm.runtime.stageWidth;
       monitorScaler.style.transform = `scale(${scale}, ${scale})`;
     });
     resizeObserver.observe(stage);
