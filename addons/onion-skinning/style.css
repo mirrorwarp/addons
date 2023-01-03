@@ -1,8 +1,8 @@
 .sa-onion-button {
   position: relative;
 }
-.sa-onion-button:active {
-  background-color: hsla(0, 100%, 65%, 0.2);
+.sa-onion-button:focus-within {
+  background-color: hsla(215, 100%, 65%, 0.2);
 }
 [theme="dark"] .sa-onion-image {
   filter: brightness(0) invert(0.8);
@@ -30,7 +30,7 @@
 
 .sa-onion-settings {
   position: absolute;
-  bottom: 0px;
+  bottom: 100%;
   /* based on the styles for the color dropdown */
   padding: 4px;
   border-radius: 4px;
@@ -93,6 +93,6 @@
   stroke: var(--paint-ui-pane-border, #ddd);
 }
 
-.sa-onion-label {
+.sa-onion-settings-label {
   white-space: nowrap;
 }

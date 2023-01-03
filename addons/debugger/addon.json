@@ -69,7 +69,7 @@
       "default": false
     }
   ],
-  "tags": ["editor", "featured", "beta"],
+  "tags": ["editor", "codeEditor", "featured", "beta"],
   "enabledByDefault": false,
   "versionAdded": "1.16.0",
   "latestUpdate": {
