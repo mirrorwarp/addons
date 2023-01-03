@@ -2,7 +2,7 @@
   position: relative;
 }
 .sa-onion-button:focus-within {
-  background-color: hsla(215, 100%, 65%, 0.2);
+  background-color: hsla(0, 100%, 65%, 0.2);
 }
 [theme="dark"] .sa-onion-image {
   filter: brightness(0) invert(0.8);
