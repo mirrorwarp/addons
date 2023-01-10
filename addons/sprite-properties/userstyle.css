@@ -46,7 +46,7 @@
   left: -2px;
   border: none;
   border-radius: 100%;
-  background-color: var(--editorDarkMode-primary, hsla(215, 100%, 65%, 1));
+  background-color: var(--editorDarkMode-primary, hsla(0, 100%, 65%, 1));
 }
 
 .sa-hide-sprite-properties [class*="sprite-selector-item_is-selected"] .sa-sprite-properties-btn {
