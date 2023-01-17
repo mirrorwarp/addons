@@ -74,6 +74,7 @@ export default async function ({ addon, console, msg }) {
     return ret;
   };
 
+  /*
   if (addon.self.enabledLate) {
     // Clone count might be inaccurate if the user deleted sprites
     // before enabling the addon
@@ -83,6 +84,7 @@ export default async function ({ addon, console, msg }) {
     }
     vm.runtime._cloneCounter = count;
   }
+  */
 
   while (true) {
     await addon.tab.waitForElement('[class*="controls_controls-container"]', {
