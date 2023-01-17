@@ -130,6 +130,5 @@
       "default": true
     }
   ],
-  "libraries": ["scratch-blocks"],
   "enabledByDefault": true
 }
