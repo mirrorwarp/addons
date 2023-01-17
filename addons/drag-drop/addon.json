@@ -13,12 +13,6 @@
       "matches": ["projects"]
     }
   ],
-  "userstyles": [
-    {
-      "url": "dragged-over.css",
-      "matches": ["projects"]
-    }
-  ],
   "settings": [
     {
       "dynamic": true,
