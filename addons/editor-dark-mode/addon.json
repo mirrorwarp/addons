@@ -12,19 +12,18 @@
       "name": "infinitytec",
       "note": "3.Dark, 3.Darker",
       "id": "darker",
-      "link": "https://github.com/infinitytec"
+      "link": "https://scratch.mit.edu/users/infinitytec/"
     },
     {
       "name": "_nix",
       "note": "Dark editor",
       "id": "dark",
-      "link": "https://github.com/towerofnix"
+      "link": "https://scratch.mit.edu/users/_nix/"
     },
     {
       "name": "GarboMuffin",
       "note": "TurboWarp Dark",
-      "id": "twdark",
-      "link": "https://github.com/GarboMuffin"
+      "id": "twdark"
     }
   ],
   "customCssVariables": [
