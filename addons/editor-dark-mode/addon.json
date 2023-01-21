@@ -841,84 +841,98 @@
   ],
   "settings": [
     {
+      "dynamic": true,
       "name": "Page background",
       "id": "page",
       "type": "color",
       "default": "#111111"
     },
     {
+      "dynamic": true,
       "name": "Highlight color",
       "id": "primary",
       "type": "color",
       "default": "#4d97ff"
     },
     {
+      "dynamic": true,
       "name": "Text and icon highlight color",
       "id": "highlightText",
       "type": "color",
       "default": "#4d97ff"
     },
     {
+      "dynamic": true,
       "name": "Menu bar background",
       "id": "menuBar",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Active tab background",
       "id": "activeTab",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Inactive tab background",
       "id": "tab",
       "type": "color",
       "default": "#151515"
     },
     {
+      "dynamic": true,
       "name": "Sprite pane background",
       "id": "selector",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Costume/sound list background",
       "id": "selector2",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Selected sprite/costume/sound background",
       "id": "selectorSelection",
       "type": "color",
       "default": "#111111"
     },
     {
+      "dynamic": true,
       "name": "Accent background",
       "id": "accent",
       "type": "color",
       "default": "#151515"
     },
     {
+      "dynamic": true,
       "name": "Input background",
       "id": "input",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Code area background",
       "id": "workspace",
       "type": "color",
       "default": "#151515"
     },
     {
+      "dynamic": true,
       "name": "Block category menu background",
       "id": "categoryMenu",
       "type": "color",
       "default": "#202020"
     },
     {
+      "dynamic": true,
       "name": "Block palette background",
       "id": "palette",
       "type": "color",
@@ -926,18 +940,21 @@
       "allowTransparency": true
     },
     {
+      "dynamic": true,
       "name": "Full screen background",
       "id": "fullscreen",
       "type": "color",
       "default": "#000000"
     },
     {
+      "dynamic": true,
       "name": "Full screen header background",
       "id": "stageHeader",
       "type": "color",
       "default": "#000000"
     },
     {
+      "dynamic": true,
       "name": "Border color",
       "id": "border",
       "type": "color",
@@ -945,18 +962,21 @@
       "allowTransparency": true
     },
     {
+      "dynamic": true,
       "name": "Show workspace dots",
       "id": "dots",
       "type": "boolean",
       "default": false
     },
     {
+      "dynamic": true,
       "name": "Change the costume editor background and selection borders",
       "id": "affectPaper",
       "type": "boolean",
       "default": true
     },
     {
+      "dynamic": true,
       "name": "Change the colors of variables, lists, speech bubbles, and answer inputs on the stage",
       "id": "affectStage",
       "type": "boolean",
